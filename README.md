@@ -1,14 +1,14 @@
-Yii2-tinymce is extention for Yii Framework 2.0
-===============================================
+#Yii2-tinymce is extention for Yii Framework 2.0
+
 
 ## Usage Example
 
-#1. Config file:
+###1. Config file:
 ~~~php
 Yii::setAlias('let', realpath(__DIR__ . '/../../frontend/widgets/let'));
 ~~~
 
-#2. View file:
+###2. View file:
 ~~~php
 echo \frontend\widgets\let\tinymce\Tinymce::widget([
     'htmlOptions' => array(
