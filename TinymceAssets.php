@@ -2,9 +2,9 @@
 
 namespace letyii\tinymce;
 
-class TinymceAssets extends yii\web\AssetBundle
+class TinymceAssets extends \yii\web\AssetBundle
 {
-	public $sourcePath = '@vendor/letyii/yii2-tinymce/assets';
+	public $sourcePath = '@vendor/letyii/yii2-tinymce';
 	public $js = [
 		'tinymce/tinymce.min.js',
 	];

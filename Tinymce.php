@@ -15,7 +15,7 @@ use yii\helpers\Html;
 use yii\helpers\Json;
 use letyii\tinymce\TinymceAssets;
 
-class Tinymce extends yii\widgets\InputWidget
+class Tinymce extends \yii\widgets\InputWidget
 {
     public $id = '';
     public $class = '';
