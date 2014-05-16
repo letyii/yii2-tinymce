@@ -2,23 +2,24 @@
 
 ### Usage Example
 ~~~php
-echo letyii\tinymce\Tinymce::widget([
-    'htmlOptions' => array(
+$model = Article::findOne(1);
+echo $form->field($model, 'content')->widget(letyii\tinymce\Tinymce::className(), [
+    'htmlOptions' => [
         'name' => 'testName',
         'id' => 'testid',
-    ),
-    'configs' => array(
+    ],
+    'configs' => [ // Read more: http://www.tinymce.com/wiki.php/Configuration
         'selector' => 'textarea',
-        'link_list' => array(
-            array(
+        'link_list' => [
+            [
                 'title' => 'My page 1',
                 'value' => 'http://www.tinymce.com',
-            ),
-            array(
+            ],
+            [
                 'title' => 'My page 2',
                 'value' => 'http://www.tinymce.com',
-            ),
-        ),
-    ),
+            ],
+        ],
+    ],
 ]);
 ~~~
