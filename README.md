@@ -1,10 +1,7 @@
 # Yii2-tinymce is extention for Yii Framework 2.0
-
-## Installation
 Renders a [TinyMCE WYSIWYG text editor plugin](http://www.tinymce.com/) widget.
 
-Installation
-------------
+## Installation
 The preferred way to install this extension is through [composer](http://getcomposer.org/download/).
 
 Either run
