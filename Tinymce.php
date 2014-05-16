@@ -12,9 +12,10 @@
 
 namespace letyii\tinymce;
 use yii\helpers\Html;
+use yii\helpers\Json;
 use letyii\tinymce\TinymceAssets;
 
-class Tinymce extends \yii\base\Widget
+class Tinymce extends yii\widgets\InputWidget
 {
     public $id = '';
     public $class = '';
@@ -30,7 +31,7 @@ class Tinymce extends \yii\base\Widget
 		TinymceAssets::register($this->view);
 
 		$this->getView()->registerJs('
-			tinymce.init('. $this->getConfigs() .');
+			tinymce.init('. Json::encode($this->configs) .');
 		');
 	}
 
@@ -43,11 +44,6 @@ class Tinymce extends \yii\base\Widget
             $this->htmlOptions['name'] = 'tinymce';
         $html = Html::textarea($this->htmlOptions['name'], $this->content, $this->htmlOptions);
 		echo $html;
-	}
-
-	public function getConfigs ()
-	{
-        return $configs = json_encode($this->configs);
 	}
 
 }
