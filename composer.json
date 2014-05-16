@@ -4,6 +4,7 @@
     "homepage": "https://github.com/letyii/yii2-tinymce",
     "keywords": ["yii2","tinymce"],
     "license": "MIT",
+    "minimum-stability": "beta",
     "require": {
         "php": ">=5.4",
         "yiisoft/yii2": "*"
