@@ -18,7 +18,6 @@ use letyii\tinymce\TinymceAssets;
 class Tinymce extends \yii\widgets\InputWidget
 {
     public $id = '';
-    public $class = '';
     public $content = '';
     public $configs = [];
 
