@@ -24,21 +24,17 @@ class Tinymce extends \yii\widgets\InputWidget
     /**
 	 * Initializes the widget.
 	 */
-	public function init()
-	{
+	public function init() {
 		TinymceAssets::register($this->view);
-
-        if (!isset($this->options['id']))
-            $this->options['id'] = 'tinymce' . rand(0, 1000);
-        $this->configs['selector'] = 'textarea#' . $this->options['id'];
-		$this->getView()->registerJs('tinymce.init('. Json::encode($this->configs) .');');
 	}
 
 	/**
 	 * Renders the widget.
 	 */
-	public function run()
-	{
+	public function run() {
+        $this->options['id'] = empty($this->id) ? 'tinymce' . rand(0, 1000) : $this->id;
+        $this->configs['selector'] = 'textarea#' . $this->options['id'];
+		$this->getView()->registerJs('tinymce.init('. Json::encode($this->configs) .');');
         echo Html::activeTextarea($this->model, $this->attribute, $this->options);
 	}
 }
