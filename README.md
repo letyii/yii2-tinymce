@@ -21,12 +21,10 @@ to the require section of your application's `composer.json` file.
 ~~~php
 $model = Article::findOne(1);
 echo $form->field($model, 'content')->widget(letyii\tinymce\Tinymce::className(), [
-    'htmlOptions' => [
-        'name' => 'testName',
+    'options' => [
         'id' => 'testid',
     ],
     'configs' => [ // Read more: http://www.tinymce.com/wiki.php/Configuration
-        'selector' => 'textarea',
         'link_list' => [
             [
                 'title' => 'My page 1',

@@ -20,8 +20,7 @@ class Tinymce extends \yii\widgets\InputWidget
     public $id = '';
     public $class = '';
     public $content = '';
-    public $configs = array();
-    public $htmlOptions = array();
+    public $configs = [];
 
     /**
 	 * Initializes the widget.
@@ -30,9 +29,10 @@ class Tinymce extends \yii\widgets\InputWidget
 	{
 		TinymceAssets::register($this->view);
 
-		$this->getView()->registerJs('
-			tinymce.init('. Json::encode($this->configs) .');
-		');
+        if (!isset($this->options['id']))
+            $this->options['id'] = 'tinymce' . rand(0, 1000);
+        $this->configs['selector'] = 'textarea#' . $this->options['id'];
+		$this->getView()->registerJs('tinymce.init('. Json::encode($this->configs) .');');
 	}
 
 	/**
@@ -40,10 +40,6 @@ class Tinymce extends \yii\widgets\InputWidget
 	 */
 	public function run()
 	{
-        if (!isset($this->htmlOptions['name']))
-            $this->htmlOptions['name'] = 'tinymce';
-        $html = Html::textarea($this->htmlOptions['name'], $this->content, $this->htmlOptions);
-		echo $html;
+        echo Html::activeTextarea($this->model, $this->attribute, $this->options);
 	}
-
 }
