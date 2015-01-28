@@ -22,7 +22,7 @@ to the require section of your application's `composer.json` file.
 $model = Article::findOne(1);
 echo $form->field($model, 'content')->widget(letyii\tinymce\Tinymce::className(), [
     'options' => [
-        'id' => 'testid',
+        'class' => 'your_class',
     ],
     'configs' => [ // Read more: http://www.tinymce.com/wiki.php/Configuration
         'link_list' => [
