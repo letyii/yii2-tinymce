@@ -32,7 +32,7 @@ class Tinymce extends \yii\widgets\InputWidget
 	 * Renders the widget.
 	 */
 	public function run() {
-        $this->options['id'] = empty($this->id) ? 'tinymce' . rand(0, 1000) : $this->id;
+        $this->options['id'] = Html::getInputId($this->model, $this->attribute);
         $this->configs['selector'] = 'textarea#' . $this->options['id'];
 		$this->getView()->registerJs('tinymce.init('. Json::encode($this->configs) .');');
         echo Html::activeTextarea($this->model, $this->attribute, $this->options);
