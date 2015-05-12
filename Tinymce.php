@@ -18,8 +18,12 @@ use letyii\tinymce\TinymceAssets;
 class Tinymce extends \yii\widgets\InputWidget
 {
     public $id = '';
+    
     public $content = '';
+    
     public $configs = [];
+
+    public $addConfigString = '';
 
     /**
 	 * Initializes the widget.
@@ -34,7 +38,14 @@ class Tinymce extends \yii\widgets\InputWidget
 	public function run() {
         $this->options['id'] = Html::getInputId($this->model, $this->attribute);
         $this->configs['selector'] = 'textarea#' . $this->options['id'];
-		$this->getView()->registerJs('tinymce.init('. Json::encode($this->configs) .');');
+
+        $configsEncode = Json::encode($this->configs);
+        $configsEncode = rtrim($configsEncode, '}');
+
+        $this->addConfigString = str_replace('{{id}}', $this->options['id'], $this->addConfigString);
+        $configsEncode .= ','. $this->addConfigString .'}';
+
+		$this->getView()->registerJs('tinymce.init('. $configsEncode .');');
         echo Html::activeTextarea($this->model, $this->attribute, $this->options);
 	}
 }
