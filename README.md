@@ -7,12 +7,12 @@ The preferred way to install this extension is through [composer](http://getcomp
 Either run
 
 ```
-php composer.phar require "letyii/yii2-tinymce" "dev-master"
+php composer.phar require "letyii/yii2-tinymce" "*"
 ```
 or add
 
 ```json
-"letyii/yii2-tinymce": "dev-master"
+"letyii/yii2-tinymce": "*"
 ```
 
 to the require section of your application's `composer.json` file.
